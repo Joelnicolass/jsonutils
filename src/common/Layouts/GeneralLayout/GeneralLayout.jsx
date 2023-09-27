@@ -25,7 +25,10 @@ const GeneralLayout = ({ children }) => {
         className="
         fixed
         top-0 w-full z-50 
+        flex justify-between
         backdrop-blur-sm bg-white/10
+        border-b-2 border-gray-700 border-opacity-50
+        custom-header
         "
       >
         <NavbarContent>
@@ -38,7 +41,7 @@ const GeneralLayout = ({ children }) => {
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden sm:flex gap-4">
           {/* <NavbarItem>
             <Link color="foreground">Apps</Link>
           </NavbarItem> */}

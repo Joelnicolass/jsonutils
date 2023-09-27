@@ -42,3 +42,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: transparent;
 }
+
+.custom-header header {
+  max-width: 100% !important;
+}

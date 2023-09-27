@@ -1,7 +1,13 @@
 import React from "react";
 
-const Button = ({ children, ...props }) => {
-  return <button {...props}>{children}</button>;
+import { Button } from "@nextui-org/react";
+
+const Btn = ({ children, ...props }) => {
+  return (
+    <Button color="primary" variant="ghost" {...props}>
+      {children}
+    </Button>
+  );
 };
 
-export default Button;
+export default Btn;

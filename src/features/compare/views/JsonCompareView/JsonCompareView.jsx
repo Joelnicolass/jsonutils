@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TextArea from "../../../../common/components/TextArea/TextArea";
-import { Button } from "@nextui-org/react";
 import {
   diff,
   addedDiff,
@@ -9,6 +8,7 @@ import {
   detailedDiff,
 } from "deep-object-diff";
 import Title from "../../../../common/components/Title/Title";
+import Btn from "../../../../common/components/Button/Button";
 
 const JsonCompareView = () => {
   const [rawJsons, setRawJsons] = useState({
@@ -167,7 +167,7 @@ const JsonCompareView = () => {
           />
         </section>
       </div>
-      <Button onClick={handleFormat}>FORMATEAR Y COMPARAR</Button>
+      <Btn onClick={handleFormat}>FORMATEAR Y COMPARAR</Btn>
 
       <section>
         <div>

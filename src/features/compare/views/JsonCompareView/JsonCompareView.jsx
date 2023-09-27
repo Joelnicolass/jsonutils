@@ -131,11 +131,7 @@ const JsonCompareView = () => {
   };
 
   return (
-    <div
-      className="bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900
-    min-h-full min-w-full p-5 flex flex-col align-center
-    "
-    >
+    <div className="min-h-full min-w-full p-5 flex flex-col align-center">
       <div
         style={{
           display: "flex",

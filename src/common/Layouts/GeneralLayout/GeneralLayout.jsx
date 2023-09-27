@@ -19,8 +19,15 @@ const GeneralLayout = ({ children }) => {
   const menuItems = ["Profile", "Log Out"];
 
   return (
-    <div>
-      <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <main className="dark text-foreground bg-background h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900">
+      <Navbar
+        onMenuOpenChange={setIsMenuOpen}
+        className="
+        fixed
+        top-0 w-full z-50 
+        backdrop-blur-sm bg-white/10
+        "
+      >
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -67,8 +74,9 @@ const GeneralLayout = ({ children }) => {
           ))}
         </NavbarMenu>
       </Navbar>
+      <div className="h-16" />
       {children}
-    </div>
+    </main>
   );
 };
 

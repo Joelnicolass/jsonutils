@@ -3,7 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const CardGrid = ({
-  size = 1,
+  col = 1,
+  row = 1,
   borderSize = 0,
   animation = {
     y: 20,
@@ -14,13 +15,22 @@ const CardGrid = ({
   children,
   ...props
 }) => {
-  const getSize = () => {
+  const getSizeCol = () => {
     const sizes = {
       1: "col-span-1",
       2: "col-span-2",
       3: "col-span-3",
     };
-    return sizes[size] || sizes[1];
+    return sizes[col] || sizes[1];
+  };
+
+  const getSizeRow = () => {
+    const sizes = {
+      1: "row-span-1",
+      2: "row-span-2",
+      3: "row-span-3",
+    };
+    return sizes[row] || sizes[1];
   };
 
   return (
@@ -29,7 +39,8 @@ const CardGrid = ({
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: animation.duration, delay: animation.delay }}
       className={`rounded-xl border-${borderSize}
-        ${getSize()}
+        ${getSizeCol()}
+        ${getSizeRow()}
       
       `}
       {...props}

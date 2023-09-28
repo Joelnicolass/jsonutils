@@ -13,7 +13,8 @@ const CardMenu = ({
     via: "via-blue-500",
     to: "to-purple-600",
   },
-  size = 1,
+  col = 1,
+  row = 1,
   onClicked = () => {},
   icon = () => {},
 }) => {
@@ -28,7 +29,8 @@ const CardMenu = ({
 
   return (
     <CardGrid
-      size={size}
+      col={col}
+      row={row}
       animation={animation(delay)}
       {...handleHover}
       onClick={onClicked}

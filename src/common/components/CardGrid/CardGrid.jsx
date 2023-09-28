@@ -14,13 +14,24 @@ const CardGrid = ({
   children,
   ...props
 }) => {
+  const getSize = () => {
+    const sizes = {
+      1: "col-span-1",
+      2: "col-span-2",
+      3: "col-span-3",
+    };
+    return sizes[size] || sizes[1];
+  };
+
   return (
     <motion.div
       initial={{ y: animation.y, opacity: animation.opacity }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: animation.duration, delay: animation.delay }}
       className={`rounded-xl border-${borderSize}
-      col-span-${size}`}
+        ${getSize()}
+      
+      `}
       {...props}
     >
       {children}

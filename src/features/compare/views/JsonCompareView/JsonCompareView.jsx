@@ -131,7 +131,7 @@ const JsonCompareView = () => {
   };
 
   return (
-    <div className="min-h-full min-w-full p-5 flex flex-col align-center">
+    <div className="min-w-full p-5 flex flex-col align-center">
       <div
         style={{
           display: "flex",
@@ -167,6 +167,7 @@ const JsonCompareView = () => {
           />
         </section>
       </div>
+      <div className="h-8"></div>
       <Btn onClick={handleFormat}>FORMATEAR Y COMPARAR</Btn>
 
       <section>

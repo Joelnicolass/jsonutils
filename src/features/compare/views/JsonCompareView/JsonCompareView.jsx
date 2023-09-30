@@ -18,7 +18,6 @@ const JsonCompareView = () => {
 
   const [result, setResult] = useState({
     areEquivalent: false,
-    jsonMap: "",
     diferences: [],
   });
 
@@ -58,49 +57,13 @@ const JsonCompareView = () => {
     const jsonA = JSON.parse(a);
     const jsonB = JSON.parse(b);
 
-    const { added, deleted, updated } = detailedDiff(jsonA, jsonB);
-
-    const diferences = [];
-
-    if (Object.keys(added).length > 0) {
-      diferences.push("ADDED");
-      diferences.push(JSON.stringify(added, null, 2));
-    }
-
-    if (Object.keys(deleted).length > 0) {
-      diferences.push("DELETED");
-      diferences.push(JSON.stringify(deleted, null, 2));
-    }
-
-    if (Object.keys(updated).length > 0) {
-      diferences.push("UPDATED");
-      diferences.push(JSON.stringify(updated, null, 2));
-    }
-
-    const diferencesFormatted = diferences.map((line) => {
-      if (line.includes("ADDED")) {
-        return `<span id="$dif$" style="color: green">${line}</span>`;
-      }
-
-      if (line.includes("DELETED")) {
-        return `<span id="$dif$" style="color: red">${line}</span>`;
-      }
-
-      if (line.includes("UPDATED")) {
-        return `<span id="$dif$" style="color: blue">${line}</span>`;
-      }
-
-      return line;
-    });
+    console.log(diff(jsonA, jsonB));
 
     return {
       areEquivalent: a === b,
-      jsonMap: diferencesFormatted.join("\n"),
-      diferences: diferencesFormatted,
+      diferences: [diff(jsonA, jsonB)],
     };
   }
-
-  const toTextPlain = (text) => text.replace(/<[^>]*>?/gm, "");
 
   const handleFormat = () => {
     const { rawJsonA, rawJsonB } = rawJsons;
@@ -131,11 +94,16 @@ const JsonCompareView = () => {
   };
 
   return (
-    <div className="min-w-full p-5 flex flex-col align-center">
+    <div
+      className="
+      h-[calc(100vh-4rem)] max-w-3xl mx-auto
+      p-5 flex flex-col align-center"
+    >
       <div
         style={{
           display: "flex",
           width: "100%",
+          height: "100vh",
           justifyContent: "space-between",
         }}
       >
@@ -167,12 +135,13 @@ const JsonCompareView = () => {
           />
         </section>
       </div>
-      <div className="h-8"></div>
+
       <Btn onClick={handleFormat}>FORMATEAR Y COMPARAR</Btn>
 
       <section>
         <div>
-          {result.areEquivalent ? (
+          {rawJsons.rawJsonA === "" ||
+          rawJsons.rawJsonB === "" ? null : result.areEquivalent ? (
             <span>Los JSON son iguales</span>
           ) : (
             <span>Los JSON son diferentes</span>
@@ -186,16 +155,20 @@ const JsonCompareView = () => {
             justifyContent: "space-between",
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: result.diferences.join("\n"),
-            }}
-            style={{
-              width: "100%",
-              height: "100%",
-              overflow: "scroll",
-            }}
-          />
+          {result.diferences.map((diference, index) => (
+            <div
+              key={index}
+              style={{
+                height: "100vh",
+              }}
+            >
+              <TextArea
+                name={`diference-${index}`}
+                value={JSON.stringify(diference, null, 2)}
+                error={false}
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>

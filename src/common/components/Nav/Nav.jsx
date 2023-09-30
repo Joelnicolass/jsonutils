@@ -24,7 +24,8 @@ const Nav = () => {
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       className="
-  fixed
+  sticky
+  h-[4em]
   top-0 w-full z-50 
   flex justify-between
   backdrop-blur-sm bg-white/10

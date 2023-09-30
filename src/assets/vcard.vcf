@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 16.6.1//EN
+N:Macheo Lorca;Francisco E.;;;
+FN:Francisco E. Macheo Lorca
+ORG:ASUN;
+EMAIL;type=INTERNET;type=WORK;type=pref:fmacheo@asunarg.com
+EMAIL;type=INTERNET;type=WORK:fmacheo@asun.cl
+TEL;type=CELL;type=VOICE;type=pref:+54 9 3764 57 6176
+X-SOCIALPROFILE;type=Instagram;x-user=aserraderos_unidos_asun:x-apple:aserraderos_unidos_asun
+X-SOCIALPROFILE;type=facebook:http://www.facebook.com/Facebook@AsunChile
+item1.URL;type=pref:www.asun.cl
+item1.X-ABLabel:_$!<HomePage>!$_
+END:VCARD

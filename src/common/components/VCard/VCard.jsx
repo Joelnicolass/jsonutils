@@ -19,7 +19,7 @@ const VCard = () => {
 
   useEffect(() => {
     console.log(vcard);
-    const file = new Blob([vcard], { type: "text/vcard" });
+    const file = new Blob([vcard], { type: "text/plain" });
     const a = document.createElement("a");
     const url = URL.createObjectURL(file);
     a.href = url;

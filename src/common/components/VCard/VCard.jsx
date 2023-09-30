@@ -48,12 +48,16 @@ const VCard = () => {
 
     const vcardString = vcard.toString();
 
-    const element = document.createElement("a");
-    const file = new Blob([vcardString], { type: "text/vcard;charset=utf-8" });
-    element.href = URL.createObjectURL(file);
-    element.download = "myFile.vcf";
-    document.body.appendChild(element);
-    element.click();
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Francisco E. Macheo Lorca",
+          text: "ASUN",
+          url: vcardString,
+        })
+        .then(() => console.log("Successful share"))
+        .catch((error) => console.log("Error sharing", error));
+    }
   }, []);
 
   return (

@@ -49,7 +49,7 @@ const VCard = () => {
     const vcardString = vcard.toString();
 
     const element = document.createElement("a");
-    const file = new Blob([vcard], { type: "text/plain;charset=utf-8" });
+    const file = new Blob([vcardString], { type: "text/plain;charset=utf-8" });
     element.href = URL.createObjectURL(file);
     element.download = "myFile.vcf";
     document.body.appendChild(element);
